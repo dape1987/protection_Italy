@@ -1,0 +1,27 @@
+name: export_pc
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - normattiva/candidati.csv
+      - normattiva/export_pc.py
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q normattiva-sdk
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@users.noreply.github.com
+          python normattiva/export_pc.py ${{ matrix.shard }} 3
