@@ -38,7 +38,7 @@ with open(f"{D}/atti_normattiva.csv", "w", newline="", encoding="utf-8") as f:
             m = re.search(r"convertit[oa][^.]*?dalla L\. \d+ \w+ \d{4}, n\. \d+", t)
             row["conversione"] = m.group(0) if m else ""
             row["tabelle"] = ("formato grafico (vedi GU)" if "formato grafico" in corpo
-                              else "trascritte" if " | " in corpo else "nessuna")
+                              else "trascritte" if " | " in corpo else "nessuna tabella")
             p = f"{D}/testi/{r['file']}.txt"
             open(p, "w", encoding="utf-8").write(f"{a.get('titolo', '')}\n{a.get('gu_pdf', '')}\n\n{corpo}\n")
             row["testo_txt"] = p
