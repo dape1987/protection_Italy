@@ -1,0 +1,22 @@
+name: normattiva
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - normattiva/elenco.csv
+      - normattiva/fetch.sh
+      - .github/workflows/normattiva.yml
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash normattiva/fetch.sh
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@users.noreply.github.com
+          git add normattiva/json
+          git commit -m "Normattiva: risultati raccolta" || exit 0
+          git push
