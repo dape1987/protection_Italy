@@ -47,7 +47,8 @@ def convertiti(t):
     return [f"{a}-{MESI[mm.lower()]:02d}-{int(g):02d}_{n}" for g, mm, a, n in DN.findall(testa)]
 
 
-universo = sorted(csv.DictReader(open(f"{U}/atti_1926_1939.csv", encoding="utf-8")), key=lambda r: r["data_emanazione"])
+universo = {r["codice_redazionale"]: r for r in csv.DictReader(open(f"{U}/atti_1926_1939.csv", encoding="utf-8"))}
+universo = sorted(universo.values(), key=lambda r: r["data_emanazione"])
 parole = defaultdict(set)
 for r in csv.DictReader(open(f"{U}/testo.csv", encoding="utf-8")):
     parole[r["codice_redazionale"]].add(r["parola"])
