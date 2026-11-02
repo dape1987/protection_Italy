@@ -16,19 +16,19 @@ def testo(xml):
 ric = {r["file"]: r for r in csv.DictReader(open(f"{D}/out/ricerca.csv", encoding="utf-8"))}
 campi = ["file", "data_lista", "tipo_lista", "oggetto_lista", "denominazione", "data_emanazione", "numero",
          "codice_redazionale", "data_gu", "numero_gu", "conversione", "tabelle", "corrisponde_lista",
-         "titolo", "gu_pdf", "testo_txt"]
+         "nota", "titolo", "gu_pdf", "testo_txt"]
 with open(f"{D}/atti_normattiva.csv", "w", newline="", encoding="utf-8") as f:
     w = csv.DictWriter(f, campi)
     w.writeheader()
     for r in csv.DictReader(open(f"{D}/elenco.csv", encoding="utf-8")):
         a = ric.get(r["file"], {})
         z = glob.glob(f"{D}/out/export/{r['file']}_*.zip")
-        row = {"file": r["file"], "data_lista": r["data"], "tipo_lista": r["tipo"], "oggetto_lista": r["oggetto"],
+        row = {"file": r["file"], "data_lista": r["data_lista"], "nota": r["nota"], "tipo_lista": r["tipo"], "oggetto_lista": r["oggetto"],
                "denominazione": a.get("denominazione"), "data_emanazione": a.get("data_emanazione"),
                "numero": r["num"], "codice_redazionale": a.get("codice_redazionale"),
                "data_gu": a.get("data_gu"), "numero_gu": a.get("numero_gu"), "titolo": a.get("titolo"),
                "gu_pdf": a.get("gu_pdf"),
-               "corrisponde_lista": "sì" if a.get("data_emanazione") == r["data"] else "NO: data diversa"}
+               "corrisponde_lista": "sì" if a.get("data_emanazione") == r["data_lista"] and not r["nota"] else "NO: vedi nota"}
         if z:
             with zipfile.ZipFile(z[0]) as zz:
                 xml = "".join(zz.read(n).decode("utf-8") for n in zz.namelist() if n.endswith(".xml"))

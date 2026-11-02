@@ -1,50 +1,50 @@
-urn,file,data,num,tipo,oggetto
-urn:nir:stato:regio.decreto.legge:1930-06-04;692@originale,19300604_692,1930-06-04,692,RDL,Aumento dazio frumento
-urn:nir:stato:regio.decreto.legge:1930-07-04;869@originale,19300704_869,1930-07-04,869,RDL,Aumento dazio frumento
-urn:nir:stato:regio.decreto.legge:1930-08-16;980@originale,19300816_980,1930-08-16,980,RDL,Aumento dazio frumento
-urn:nir:stato:regio.decreto.legge:1930-11-24;1546@originale,19301124_1546,1930-11-24,1546,RDL,Dazio automobili
-urn:nir:stato:regio.decreto.legge:1931-04-23;431@originale,19310423_431,1931-04-23,431,RDL,Dazio bottoni di madreperla
-urn:nir:stato:regio.decreto.legge:1931-06-25;867@originale,19310625_867,1931-06-25,867,RDL,Dazio segale/derivati; carne congelata
-urn:nir:stato:regio.decreto.legge:1931-07-21;976@originale,19310721_976,1931-07-21,976,RDL,Dazio alluminio e lavori
-urn:nir:stato:regio.decreto.legge:1931-07-24;984@originale,19310724_984,1931-07-24,984,RDL,Dazio corozo e semi di palma dum
-urn:nir:stato:regio.decreto.legge:1931-07-29;982@originale,19310729_982,1931-07-29,982,RDL,Dazio derivati dall azoto
-urn:nir:stato:regio.decreto.legge:1931-09-14;1161@originale,19310914_1161,1931-09-14,1161,RDL,Dazio prodotti industria cotoniera
-urn:nir:stato:regio.decreto.legge:1931-09-17;1190@originale,19310917_1190,1931-09-17,1190,RDL,Dazio carbone di legna
-urn:nir:stato:regio.decreto.legge:1931-09-17;1191@originale,19310917_1191,1931-09-17,1191,RDL,Dazio estratti tannici
-urn:nir:stato:regio.decreto.legge:1931-09-17;1204@originale,19310917_1204,1931-09-17,1204,RDL,Dazio tonno sott olio e sughero
-urn:nir:stato:regio.decreto.legge:1931-09-18;1186@originale,19310918_1186,1931-09-18,1186,RDL,Dazio apparecchi radiofonici
-urn:nir:stato:regio.decreto.legge:1931-09-24;1187@originale,19310924_1187,1931-09-24,1187,RDL,Dazio generale 15% ad valorem; dazio grano
-urn:nir:stato:regio.decreto.legge:1931-10-04;1235@originale,19311004_1235,1931-10-04,1235,RDL,Dazio riso e farina di riso
-urn:nir:stato:regio.decreto.legge:1931-10-08;1250@originale,19311008_1250,1931-10-08,1250,RDL,Aumento dazio caffe
-urn:nir:stato:regio.decreto.legge:1931-12-21;1592@originale,19311221_1592,1931-12-21,1592,RDL,Tassa speciale su merci sbarcate
-urn:nir:stato:regio.decreto.legge:1931-12-24;1562@originale,19311224_1562,1931-12-24,1562,RDL,Aliquote tassa di scambio a reciprocita
-urn:nir:stato:regio.decreto.legge:1932-06-16;726@originale,19320616_726,1932-06-16,726,RDL,Dazio carbone coke
-urn:nir:stato:regio.decreto.legge:1932-08-19;1034@originale,19320819_1034,1932-08-19,1034,RDL,Dazio legno grezzo e segato
-urn:nir:stato:regio.decreto.legge:1932-08-26;1032@originale,19320826_1032,1932-08-26,1032,RDL,Dazio prodotti zootecnici
-urn:nir:stato:regio.decreto.legge:1932-10-22;1368@originale,19321022_1368,1932-10-22,1368,RDL,Dazio semi oleosi
-urn:nir:stato:regio.decreto.legge:1932-12-22;1677@originale,19321222_1677,1932-12-22,1677,RDL,Dazio carbone di legna (proroga)
-urn:nir:stato:regio.decreto.legge:1932-12-29;1678@originale,19321229_1678,1932-12-29,1678,RDL,Dazio carbone coke (proroga)
-urn:nir:stato:regio.decreto.legge:1933-04-13;348@originale,19330413_348,1933-04-13,348,RDL,Sopradazio (paesi discriminatori)
-urn:nir:stato:regio.decreto.legge:1933-06-29;792@originale,19330629_792,1933-06-29,792,RDL,Dazio pelli conciate col pelo
-urn:nir:stato:regio.decreto.legge:1933-08-13;1100@originale,19330813_1100,1933-08-13,1100,RDL,Dazio grano; obbligo macinazione nazionale
-urn:nir:stato:regio.decreto.legge:1933-09-28;1428@originale,19330928_1428,1933-09-28,1428,RDL,Sopradazi (paesi senza accordi)
-urn:nir:stato:regio.decreto.legge:1933-10-19;1359@originale,19331019_1359,1933-10-19,1359,RDL,Dazio zucchero
-urn:nir:stato:regio.decreto.legge:1933-11-27;1567@originale,19331127_1567,1933-11-27,1567,RDL,"Dazi farine, macchine da scrivere, radio, carburatori (in lista come D.M.)"
-urn:nir:stato:regio.decreto.legge:1934-01-11;9@originale,19340111_9,1934-01-11,9,RDL,Dazi prodotti industriali e vari
-urn:nir:stato:regio.decreto.legge:1934-01-11;12@originale,19340111_12,1934-01-11,12,RDL,Dazi prodotti industriali e vari
-urn:nir:stato:regio.decreto.legge:1934-01-11;14@originale,19340111_14,1934-01-11,14,RDL,Dazi prodotti industriali e vari
-urn:nir:stato:regio.decreto.legge:1934-01-11;20@originale,19340111_20,1934-01-11,20,RDL,Dazi prodotti industriali e vari
-urn:nir:stato:regio.decreto.legge:1934-01-11;21@originale,19340111_21,1934-01-11,21,RDL,Dazi prodotti industriali e vari
-urn:nir:stato:regio.decreto.legge:1934-01-18;10@originale,19340118_10,1934-01-18,10,RDL,Dazio burro
-urn:nir:stato:regio.decreto.legge:1934-02-05;98@originale,19340205_98,1934-02-05,98,RDL,Dazio miele e colla di glutine
-urn:nir:stato:regio.decreto.legge:1934-04-09;607@originale,19340409_607,1934-04-09,607,RDL,Dazio legname e derivati
-urn:nir:stato:regio.decreto.legge:1934-04-16;620@originale,19340416_620,1934-04-16,620,RDL,"Dazio oli, solfuri, aniline, lampade"
-urn:nir:stato:regio.decreto.legge:1934-04-16;672@originale,19340416_672,1934-04-16,672,RDL,Diritto di statistica bovini
-urn:nir:stato:regio.decreto.legge:1934-07-05;1080@originale,19340705_1080,1934-07-05,1080,RDL,Modifica tariffa
-urn:nir:stato:regio.decreto.legge:1934-07-05;1081@originale,19340705_1081,1934-07-05,1081,RDL,Semi oleosi/oli
-urn:nir:stato:regio.decreto.legge:1934-07-05;1082@originale,19340705_1082,1934-07-05,1082,RDL,Prodotti boschivi
-urn:nir:stato:regio.decreto.legge:1934-09-20;1495@originale,19340920_1495,1934-09-20,1495,RDL,Dazio butilxilene e alcool butilico
-urn:nir:stato:regio.decreto.legge:1934-10-18;1739@originale,19341018_1739,1934-10-18,1739,RDL,"Dazio piombo, zinco, antimonio, chimici"
-urn:nir:stato:regio.decreto.legge:1934-12-10;2023@originale,19341210_2023,1934-12-10,2023,RDL,Coefficiente compensazione deprezzamento valutario
-urn:nir:stato:regio.decreto.legge:1934-12-10;2024@originale,19341210_2024,1934-12-10,2024,RDL,"Dazio motocicli, acido fenico, carta da parati, bottoni"
-urn:nir:stato:regio.decreto:1938-09-13;2085@originale,19380913_2085,1938-09-13,2085,RD,Tariffa doganale AOI
+urn,file,data,num,tipo,oggetto,data_lista,nota
+urn:nir:stato:regio.decreto.legge:1930-06-04;692@originale,19300604_692,1930-06-04,692,RDL,Aumento dazio frumento,1930-06-04,
+urn:nir:stato:regio.decreto.legge:1931-07-04;869@originale,19310704_869,1931-07-04,869,RDL,Aumento dazio frumento,1930-07-04,Data in lista errata: il n. 869 è del 4/7/1931 e riguarda le farine di frumento e di granturco bianco
+urn:nir:stato:regio.decreto.legge:1931-08-16;980@originale,19310816_980,1931-08-16,980,RDL,Aumento dazio frumento,1930-08-16,Data in lista errata: il n. 980 è del 16/8/1931
+urn:nir:stato:regio.decreto.legge:1930-11-24;1546@originale,19301124_1546,1930-11-24,1546,RDL,Dazio automobili,1930-11-24,
+urn:nir:stato:regio.decreto.legge:1931-04-23;431@originale,19310423_431,1931-04-23,431,RDL,Dazio bottoni di madreperla,1931-04-23,
+urn:nir:stato:regio.decreto.legge:1931-06-25;867@originale,19310625_867,1931-06-25,867,RDL,Dazio segale/derivati; carne congelata,1931-06-25,
+urn:nir:stato:regio.decreto.legge:1931-07-21;976@originale,19310721_976,1931-07-21,976,RDL,Dazio alluminio e lavori,1931-07-21,
+urn:nir:stato:regio.decreto.legge:1931-07-24;984@originale,19310724_984,1931-07-24,984,RDL,Dazio corozo e semi di palma dum,1931-07-24,
+urn:nir:stato:regio.decreto.legge:1931-07-29;982@originale,19310729_982,1931-07-29,982,RDL,Dazio derivati dall azoto,1931-07-29,
+urn:nir:stato:regio.decreto.legge:1931-09-14;1161@originale,19310914_1161,1931-09-14,1161,RDL,Dazio prodotti industria cotoniera,1931-09-14,
+urn:nir:stato:regio.decreto.legge:1931-09-17;1190@originale,19310917_1190,1931-09-17,1190,RDL,Dazio carbone di legna,1931-09-17,
+urn:nir:stato:regio.decreto.legge:1931-09-17;1191@originale,19310917_1191,1931-09-17,1191,RDL,Dazio estratti tannici,1931-09-17,
+urn:nir:stato:regio.decreto.legge:1931-09-17;1204@originale,19310917_1204,1931-09-17,1204,RDL,Dazio tonno sott olio e sughero,1931-09-17,
+urn:nir:stato:regio.decreto.legge:1931-09-18;1186@originale,19310918_1186,1931-09-18,1186,RDL,Dazio apparecchi radiofonici,1931-09-18,
+urn:nir:stato:regio.decreto.legge:1931-09-24;1187@originale,19310924_1187,1931-09-24,1187,RDL,Dazio generale 15% ad valorem; dazio grano,1931-09-24,
+urn:nir:stato:regio.decreto.legge:1931-10-04;1235@originale,19311004_1235,1931-10-04,1235,RDL,Dazio riso e farina di riso,1931-10-04,
+urn:nir:stato:regio.decreto.legge:1931-10-08;1250@originale,19311008_1250,1931-10-08,1250,RDL,Aumento dazio caffe,1931-10-08,
+urn:nir:stato:regio.decreto.legge:1931-12-21;1592@originale,19311221_1592,1931-12-21,1592,RDL,Tassa speciale su merci sbarcate,1931-12-21,
+urn:nir:stato:regio.decreto.legge:1931-12-24;1562@originale,19311224_1562,1931-12-24,1562,RDL,Aliquote tassa di scambio a reciprocita,1931-12-24,Il n. 1562/1931 riguarda la tassa di scambio su acque gassose e minerali; misura «a reciprocità» non individuata
+urn:nir:stato:regio.decreto.legge:1932-06-16;726@originale,19320616_726,1932-06-16,726,RDL,Dazio carbone coke,1932-06-16,
+urn:nir:stato:regio.decreto.legge:1932-08-19;1034@originale,19320819_1034,1932-08-19,1034,RDL,Dazio legno grezzo e segato,1932-08-19,
+urn:nir:stato:regio.decreto.legge:1932-08-26;1032@originale,19320826_1032,1932-08-26,1032,RDL,Dazio prodotti zootecnici,1932-08-26,
+urn:nir:stato:regio.decreto.legge:1932-10-22;1368@originale,19321022_1368,1932-10-22,1368,RDL,Dazio semi oleosi,1932-10-22,
+urn:nir:stato:regio.decreto.legge:1932-12-22;1677@originale,19321222_1677,1932-12-22,1677,RDL,Dazio carbone di legna (proroga),1932-12-22,
+urn:nir:stato:regio.decreto.legge:1932-12-29;1678@originale,19321229_1678,1932-12-29,1678,RDL,Dazio carbone coke (proroga),1932-12-29,
+urn:nir:stato:regio.decreto.legge:1933-04-13;348@originale,19330413_348,1933-04-13,348,RDL,Sopradazio (paesi discriminatori),1933-04-13,
+urn:nir:stato:regio.decreto.legge:1933-06-29;792@originale,19330629_792,1933-06-29,792,RDL,Dazio pelli conciate col pelo,1933-06-29,
+urn:nir:stato:regio.decreto.legge:1933-08-13;1100@originale,19330813_1100,1933-08-13,1100,RDL,Dazio grano; obbligo macinazione nazionale,1933-08-13,Il n. 1100/1933 istituisce il Comitato dell'azoto; nessun decreto sul grano del 13/8/1933 trovato su Normattiva
+urn:nir:stato:regio.decreto.legge:1933-09-28;1428@originale,19330928_1428,1933-09-28,1428,RDL,Sopradazi (paesi senza accordi),1933-09-28,
+urn:nir:stato:regio.decreto.legge:1933-10-19;1359@originale,19331019_1359,1933-10-19,1359,RDL,Dazio zucchero,1933-10-19,
+urn:nir:stato:regio.decreto.legge:1933-11-27;1567@originale,19331127_1567,1933-11-27,1567,RDL,"Dazi farine, macchine da scrivere, radio, carburatori (in lista come D.M.)",1933-11-27,"È un R.D.L., non un D.M."
+urn:nir:stato:regio.decreto.legge:1934-01-11;9@originale,19340111_9,1934-01-11,9,RDL,Dazi prodotti industriali e vari,1934-01-11,
+urn:nir:stato:regio.decreto.legge:1934-01-11;12@originale,19340111_12,1934-01-11,12,RDL,Dazi prodotti industriali e vari,1934-01-11,"È un R.D., non un R.D.L.: restituzione dei diritti di confine sulle conterie"
+urn:nir:stato:regio.decreto.legge:1934-01-11;14@originale,19340111_14,1934-01-11,14,RDL,Dazi prodotti industriali e vari,1934-01-11,
+urn:nir:stato:regio.decreto.legge:1934-01-11;20@originale,19340111_20,1934-01-11,20,RDL,Dazi prodotti industriali e vari,1934-01-11,
+urn:nir:stato:regio.decreto.legge:1934-01-11;21@originale,19340111_21,1934-01-11,21,RDL,Dazi prodotti industriali e vari,1934-01-11,
+urn:nir:stato:regio.decreto.legge:1934-01-18;10@originale,19340118_10,1934-01-18,10,RDL,Dazio burro,1934-01-18,
+urn:nir:stato:regio.decreto.legge:1934-02-05;98@originale,19340205_98,1934-02-05,98,RDL,Dazio miele e colla di glutine,1934-02-05,
+urn:nir:stato:regio.decreto.legge:1934-04-09;607@originale,19340409_607,1934-04-09,607,RDL,Dazio legname e derivati,1934-04-09,
+urn:nir:stato:regio.decreto.legge:1934-04-16;620@originale,19340416_620,1934-04-16,620,RDL,"Dazio oli, solfuri, aniline, lampade",1934-04-16,
+urn:nir:stato:regio.decreto.legge:1934-04-16;672@originale,19340416_672,1934-04-16,672,RDL,Diritto di statistica bovini,1934-04-16,
+urn:nir:stato:regio.decreto.legge:1934-07-05;1080@originale,19340705_1080,1934-07-05,1080,RDL,Modifica tariffa,1934-07-05,
+urn:nir:stato:regio.decreto.legge:1934-07-05;1081@originale,19340705_1081,1934-07-05,1081,RDL,Semi oleosi/oli,1934-07-05,
+urn:nir:stato:regio.decreto.legge:1934-07-05;1082@originale,19340705_1082,1934-07-05,1082,RDL,Prodotti boschivi,1934-07-05,
+urn:nir:stato:regio.decreto.legge:1934-09-20;1495@originale,19340920_1495,1934-09-20,1495,RDL,Dazio butilxilene e alcool butilico,1934-09-20,
+urn:nir:stato:regio.decreto.legge:1934-10-18;1739@originale,19341018_1739,1934-10-18,1739,RDL,"Dazio piombo, zinco, antimonio, chimici",1934-10-18,
+urn:nir:stato:regio.decreto.legge:1934-12-10;2023@originale,19341210_2023,1934-12-10,2023,RDL,Coefficiente compensazione deprezzamento valutario,1934-12-10,Titolo: tasse di compensazione su merci da paesi che non estendono all'Italia i favori concessi a terzi (non deprezzamento valutario)
+urn:nir:stato:regio.decreto.legge:1934-12-10;2024@originale,19341210_2024,1934-12-10,2024,RDL,"Dazio motocicli, acido fenico, carta da parati, bottoni",1934-12-10,
+urn:nir:stato:regio.decreto:1938-09-13;2085@originale,19380913_2085,1938-09-13,2085,RD,Tariffa doganale AOI,1938-09-13,
