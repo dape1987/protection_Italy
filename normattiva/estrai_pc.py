@@ -12,6 +12,7 @@ VERBO = re.compile(r"dazi\w*[^.;]{0,160}(stabilit|fissat|modificat|elevat|aument
 
 
 def testo(xml):
+    xml = re.sub(r"\s*</p>\s*(</t[dh]>)", r"\1", xml)
     xml = re.sub(r"<(br|/p|/tr|/div|/heading|/num)[^>]*>", "\n", xml)
     xml = re.sub(r"</t[dh]>", " | ", xml)
     t = html.unescape(re.sub(r"<[^>]+>", " ", xml))
@@ -20,7 +21,8 @@ def testo(xml):
 
 
 meta = {r["codice_redazionale"]: r for r in csv.DictReader(open(f"{D}/politica_commerciale_1926_1939.csv", encoding="utf-8"))}
-campi = ["codice_redazionale", "data_emanazione", "denominazione", "numero", "temi", "paesi", "tabelle",
+MOD = re.compile(r"con (le seguenti |alcune )?modificazion|sono apportate le seguenti|e' modificat|sostituit[oa] dal seguente", re.I)
+campi = ["codice_redazionale", "data_emanazione", "denominazione", "numero", "tipo", "temi", "paesi", "tabelle",
          "n_aliquote", "n_verbi_dazio", "voci_citate", "conversione", "convertito_da", "titolo", "gu_pdf", "testo_txt"]
 righe = []
 for z in sorted(glob.glob(f"{SRC}/*.zip")):
@@ -28,19 +30,23 @@ for z in sorted(glob.glob(f"{SRC}/*.zip")):
     with zipfile.ZipFile(z) as zz:
         xml = "".join(zz.read(n).decode("utf-8") for n in zz.namelist() if n.endswith(".xml"))
     t = testo(xml)
-    i = t.find("VITTORIO EMANUELE")
-    corpo = t[i:] if i >= 0 else t
+    i = xml.find("<preamble") if "<preamble" in xml else xml.find("<body")
+    corpo = testo(xml[i:])
+    tab = [len(re.findall(r"<tr", x)) for x in re.findall(r"<table.*?</table>", xml[i:], re.S)]
     m = meta.get(c, {})
     conv = re.search(r"convertit[oa][^.]*?dalla L\. \d+ \w+ \d{4}, n\. \d+", t)
     p = f"{OUT_T}/{c}.txt"
     open(p, "w", encoding="utf-8").write(f"{m.get('titolo', '')}\n{m.get('gu_pdf', '')}\n\n{corpo}\n")
+    tipo = ("atto" if not re.match(r"conversione in legge", m.get("titolo", ""), re.I)
+            else "conversione con modifiche" if MOD.search(corpo) else "conversione senza modifiche")
     voci = sorted({re.sub(r"\s+", " ", v) for v in VOCE.findall(corpo)})
     righe.append({"codice_redazionale": c, **{k: m.get(k, "") for k in ("data_emanazione", "denominazione", "numero",
                                                                         "temi", "paesi", "convertito_da", "titolo", "gu_pdf")},
                   "tabelle": ("formato grafico (vedi GU)" if "formato grafico" in corpo
-                              else "trascritte" if " | " in corpo else "nessuna tabella"),
+                              else "solo intestazione (vedi GU)" if tab and max(tab) <= 1
+                              else "trascritte" if tab else "nessuna tabella"),
                   "n_aliquote": len(ALIQ.findall(corpo)), "n_verbi_dazio": len(VERBO.findall(corpo)),
-                  "voci_citate": "; ".join(voci)[:300], "conversione": conv.group(0) if conv else "", "testo_txt": p})
+                  "voci_citate": "; ".join(voci)[:300], "conversione": conv.group(0) if conv else "", "tipo": tipo, "testo_txt": p})
 righe.sort(key=lambda r: (r["data_emanazione"], int(r["numero"] or 0)))
 with open(f"{D}/testi_candidati.csv", "w", newline="", encoding="utf-8") as f:
     w = csv.DictWriter(f, campi)
