@@ -1,0 +1,26 @@
+name: universo
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - normattiva/universo.py
+permissions:
+  contents: write
+jobs:
+  universo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q requests
+      - run: python normattiva/universo.py
+      - if: always()
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@users.noreply.github.com
+          git add normattiva/out/universo
+          git commit -m "Normattiva: universo atti 1926-1939 e ricerca nel testo" || exit 0
+          git pull --rebase -q && git push
