@@ -4,25 +4,32 @@ from collections import defaultdict
 
 D = "normattiva"
 U = f"{D}/out/universo"
-COMMERCIO = r"commerc|scambi|dogan|dazi|tariff|pagament|clearing|compensaz|navigazion|merci|contingent|importaz|esportaz|economic|valut|stabiliment|prodotti|cambi"
-NONPERT = r"(rettific|delimitazion|modificazion|variazion|determinazion)\w* (de[il]|di) confin|confin\w* (fra|tra) (i )?comun|dogan.*(personale|ruol|organic|funzionari|laboratori|praticant|previdenza|impiegat|carriera|circoscrizion|sede)|(personale|ruol|organic|funzionari|laboratori|praticant|previdenza|impiegat|carriera|circoscrizion).*dogan"
+COMMERCIO = r"commerc|scambi|dogan|dazi|tariff|pagament|clearing|compensaz|navigazion|merci|contingent|importaz|esportaz|economic|\bvalut[ae]\b|valutari|stabiliment|prodotti|\bcambi\b"
+ESTERO = r"italo-|fra l'italia|tra l'italia|internazional|(firmat|stipulat|conclus)\w* (a|in) (?!roma)|stati|repubblic|regno d|governo|paesi|esteri|confederazion|dominion"
+INTERNO = r"societ|ditta|concession|comune di|provincia di|\bente\b|istituto|consorzio|azienda|banca|cassa"
+MILITARE = r"leva|classe|arruolament|militar|esercito|marina|aeronautica|carabinieri|ufficial|milizia|truppa|reclut"
+FORTI = {"dazio", "dazi", "doganale", "doganali", "dogana", "dogane", "importazione", "importazioni",
+         "esportazione", "esportazioni", "contingentamento", "clearing"}
+NONPERT = r"(contratt|accord)\w* (economic\w* )?collettiv|(rettific|delimitazion|modificazion|variazion|determinazion)\w* (de[il]|di) confin|confin\w* (fra|tra) (i )?comun|(dogan|scambi e (per le )?valute|commercio estero).*(personale|ruol|organic|funzionari|laboratori|praticant|previdenza|impiegat|carriera|circoscrizion|sede)|(personale|ruol|organic|funzionari|laboratori|praticant|previdenza|impiegat|carriera|circoscrizion).*(dogan|scambi e (per le )?valute)"
 TEMI = {  # ordine = priorità per la categoria principale
     "trattato": r"trattat|accord|convenzion|protocoll|modus vivendi|scambio di note|arrangiament|atti stipulati|atti internazionali|dichiarazion",
-    "contingenti_divieti": r"contingent|divieto|divieti|vietat|licenz\w* di (importazion|esportazion)|permess\w* di (importazion|esportazion)|autorizzazion\w* (all'|per l')(importazion|esportazion)",
-    "pagamenti_valute": r"clearing|compensazion\w* privat|pagament|valut|divis[ae]|\bcambi\b|\bcambio\b|istituto nazionale per i cambi|scambi e (per le )?valute",
+    "contingenti_divieti": r"contingent|divieto d\w* (importazion|esportazion)|divieti d\w* (importazion|esportazion)|licenz\w* di (importazion|esportazion)|permess\w* di (importazion|esportazion)|autorizzazion\w* (all'|per l')(importazion|esportazion)",
+    "pagamenti_valute": r"clearing|compensazion\w* (privat|dei pagamenti|dei crediti)|regolamento dei pagamenti|pagamenti (con|verso|fra|tra|commercial)|\bvalut[ae]\b|valutari|divise estere|divisa estera|\bcambi\b|istituto nazionale per i cambi|scambi e (per le )?valute",
     "sopradazi_ritorsioni": r"sopradaz|maggiorazion|tass\w* (speciali )?di compensazione|dazi[o]? (speciale|supplementar|aggiunt)|ritorsion|reciprocit|non estendono",
     "colonie_zone_franche": r"coloni|eritrea|somalia|libia|tripolitania|cirenaica|egeo|africa orientale|zona franca|zone franche|carnaro|zara|livigno|campione d'italia|\bfiume\b",
     "tariffa": r"regime doganale|trattamento doganale|tariffa (generale )?(dei )?dazi|tariff\w* doganal|\bdazi\b|\bdazio\b|diritt\w* di confine|diritt\w* doganal|dazi? (di|sul) valore|doganal|tassa speciale|merci (provenienti|importate) dall'estero|speciale dazio|diritt\w* di statistica",
     "esenzioni_riduzioni": r"esenzion|esent|franchigi|riduzion\w*|ridott|esoner|abolizion",
-    "temporanea_restituzioni": r"temporanea|restituzion|rimbors|drawback",
-    "fabbricazione_confine": r"fabbricazione|sovrimposta di confine|sopratassa di confine|monopol|regime fiscale|tassa di vendita|tassa di scambio",
-    "esportazione": r"esportazion|istituto nazionale per l'esportazione|marchio nazionale|premi\b",
+    "temporanea_restituzioni": r"temporanea (importazion|esportazion)|restituzion\w* (de[il]|di) (dazi|diritt)|drawback",
+    "fabbricazione_confine": r"fabbricazione|sovrimposta di confine|sopratassa di confine|monopol|regime fiscale|tassa di vendita|tass\w* (di|sugli) scambi",
+    "esportazione": r"esportazion|istituto nazionale per l'esportazione|marchio nazionale",
     "importazione": r"importazion",
     "organizzazione_commercio_estero": r"commercio (estero|con l'estero)|scambi commerciali|sottosegretariato per gli scambi|ministero per gli scambi|scambi e valute|istituto nazionale fascista per il commercio",
     "consumo_interni": r"\bconsumo\b|cint[ae] daziari|daziari|dazi[o]? comunal|imposte di consumo",
 }
-ALTI = {"tariffa", "sopradazi_ritorsioni", "contingenti_divieti", "pagamenti_valute", "esenzioni_riduzioni",
-        "temporanea_restituzioni", "fabbricazione_confine", "esportazione", "importazione"}
+ALTI = {"tariffa", "sopradazi_ritorsioni", "contingenti_divieti", "pagamenti_valute", "temporanea_restituzioni",
+        "esportazione", "importazione", "trattato"}
+DEBOLI = {"esenzioni_riduzioni", "fabbricazione_confine"}  # valgono solo con parole nel testo
+DEBOLISSIMI = {"colonie_zone_franche", "consumo_interni"}  # solo con parole doganali/commerciali forti nel testo
 PAESI = ["Albania", "Argentina", "Australia", "Austria", "Belgio", "Bolivia", "Brasile", "Bulgaria", "Canada",
          "Cecoslovacchia", "Cile", "Cina", "Colombia", "Cuba", "Danimarca", "Danzica", "Ecuador", "Egitto",
          "Estonia", "Etiopia", "Finlandia", "Francia", "Germania", "Giappone", "Gran Bretagna", "Grecia",
@@ -35,6 +42,20 @@ PAESI = ["Albania", "Argentina", "Australia", "Austria", "Belgio", "Bolivia", "B
 NORM = {"Rumania": "Romania", "Olanda": "Paesi Bassi", "Irak": "Iraq", "Persia": "Iran", "Regno Unito": "Gran Bretagna",
         "Serbi, Croati e Sloveni": "Jugoslavia", "Unione delle Repubbliche Sovietiche": "URSS", "U.R.S.S.": "URSS",
         "Russia": "URSS", "Unione Sudafricana": "Sud Africa"}
+AGG = {"austriac": "Austria", "german": "Germania", "tedesc": "Germania", "frances": "Francia", "svizzer": "Svizzera",
+       "ungheres": "Ungheria", "jugoslav": "Jugoslavia", "iugoslav": "Jugoslavia", "cecoslovacc": "Cecoslovacchia",
+       "polacc": "Polonia", "romen": "Romania", "rumen": "Romania", "bulgar": "Bulgaria", "grec": "Grecia", "turc": "Turchia",
+       "albanes": "Albania", "spagnol": "Spagna", "portoghes": "Portogallo", "belg": "Belgio", "lussemburghes": "Lussemburgo",
+       "oland": "Paesi Bassi", "danes": "Danimarca", "norveges": "Norvegia", "svedes": "Svezia", "finlandes": "Finlandia",
+       "eston": "Estonia", "letton": "Lettonia", "lituan": "Lituania", "soviet": "URSS", "russ": "URSS",
+       "britannic": "Gran Bretagna", "ingles": "Gran Bretagna", "irlandes": "Irlanda", "american": "Stati Uniti",
+       "statunitens": "Stati Uniti", "canades": "Canada", "messican": "Messico", "argentin": "Argentina",
+       "brasilian": "Brasile", "cilen": "Cile", "uruguaian": "Uruguay", "peruvian": "Perù", "giappones": "Giappone",
+       "cines": "Cina", "egizian": "Egitto", "persian": "Iran", "iranian": "Iran", "etiopic": "Etiopia", "afgan": "Afghanistan",
+       "siames": "Siam", "sudafrican": "Sud Africa", "australian": "Australia", "venezuelan": "Venezuela",
+       "colombian": "Colombia", "cuban": "Cuba", "ecuadorian": "Ecuador", "bolivian": "Bolivia", "paraguaian": "Paraguay",
+       "islandes": "Islanda", "iraches": "Iraq", "manciuk": "Manciukuò", "yemen": "Yemen", "danzic": "Danzica",
+       "sammarines": "San Marino"}
 MESI = {m: i for i, m in enumerate(["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto",
                                     "settembre", "ottobre", "novembre", "dicembre"], 1)}
 DN = re.compile(r"(\d+)°?\s+(" + "|".join(MESI) + r")\s+(\d{4})[^,]*?,\s*n\.\s*(\d+)", re.I)
@@ -67,16 +88,31 @@ for r in universo:
     if re.search(NONPERT, t):
         continue
     temi = [k for k, p in TEMI.items() if re.search(p, t)]
+    if "trattato" in temi and re.search(INTERNO, t) and not re.search(ESTERO, t):
+        temi[temi.index("trattato")] = "trattato_altro"  # convenzioni con società, enti, comuni
     if "trattato" in temi and not re.search(COMMERCIO, t):
         temi[temi.index("trattato")] = "trattato_altro"
-    if not temi and not parole[c]:
+    if "contingenti_divieti" in temi and re.search(MILITARE, t) and not re.search(COMMERCIO.replace("|contingent", ""), t):
+        temi.remove("contingenti_divieti")
+    forte = bool(parole[c] & FORTI)
+    if not parole[c]:
+        temi = [k for k in temi if k not in DEBOLI]
+    if not forte:
+        temi = [k for k in temi if k not in DEBOLISSIMI]
+    if ALTI & set(temi) or (set(temi) & {"esenzioni_riduzioni", "fabbricazione_confine"} and forte):
+        rilev = "alta"
+    elif set(temi) & {"colonie_zone_franche", "organizzazione_commercio_estero", "esenzioni_riduzioni", "fabbricazione_confine"}:
+        rilev = "media"
+    elif temi == ["consumo_interni"]:
+        rilev = "bassa"
+    elif forte or ("trattato_altro" in temi and parole[c]):
+        rilev = "da verificare"  # solo testo o trattato non commerciale con parole doganali nel testo
+    else:
         continue
-    alto = ALTI & set(temi) or ("trattato" in temi)
-    rilev = ("alta" if alto else "media" if set(temi) & {"colonie_zone_franche", "organizzazione_commercio_estero"}
-             else "bassa" if temi == ["consumo_interni"] else "da verificare")
-    if rilev == "da verificare" and not parole[c]:
-        continue  # es. trattati non commerciali senza parole di commercio nel testo
-    paesi = sorted({NORM.get(p, p) for p in PAESI if re.search(r"\b" + re.escape(p), r["titolo"])})
+    paesi = {NORM.get(p, p) for p in PAESI if re.search(r"\b" + re.escape(p), r["titolo"])}
+    for m in re.finditer(r"italo-([a-zàèéìòù-]+)", t):
+        paesi |= {v for x in m.group(1).split("-") for k, v in AGG.items() if x.startswith(k)}
+    paesi = sorted(paesi)
     conversione = t.startswith(CONV)
     rdl = convertiti(r["titolo"]) if conversione else []
     out.append({**{k: r[k] for k in ("data_emanazione", "denominazione", "numero", "codice_redazionale",
