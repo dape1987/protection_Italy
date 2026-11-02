@@ -24,7 +24,7 @@ for c, r in atti.items():
                 "categoria": next((k for k, p in CAT if re.search(p, t)), "altro (parola solo nel testo)"),
                 "conversione": "sì" if t.startswith("conversione in legge") else "",
                 "in_lista_49": "sì" if c in lista else "",
-                "parole": "+".join(p for p in ("dazio", "dazi", "doganale") if p in parole[c]),
+                "parole": "+".join(sorted(parole[c])),
                 "gu_pdf": r["data_gu"] and f'https://www.gazzettaufficiale.it/eli/gu/{r["data_gu"].replace("-", "/")}/{r["numero_gu"]}/sg/pdf',
                 "titolo": r["titolo"]})
 out.sort(key=lambda x: (x["data_emanazione"], int(x["numero"] or 0)))

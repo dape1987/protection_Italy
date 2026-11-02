@@ -5,7 +5,7 @@ import requests
 B = "https://api.normattiva.it/t/normattiva.api/bff-opendata/v1/api/v1/ricerca/avanzata"
 O = "normattiva/out/dazio"
 os.makedirs(O, exist_ok=True)
-PAROLE = ["dazio", "dazi", "doganale"]
+PAROLE = ["dazio", "dazi", "doganale", "doganali", "dogana", "dogane", "confine", "tariffa"]
 campi = ["parola", "anno", "denominazione", "data_emanazione", "numero", "codice_redazionale",
          "data_gu", "numero_gu", "titolo"]
 tot = open(f"{O}/_totali.csv", "w", encoding="utf-8")
